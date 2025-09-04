@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Sarah & Ahmad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        .font-dancing { font-family: 'Dancing Script', cursive; }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        .card-shadow {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .gallery-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 80%;
+            animation: zoom 0.6s;
+        }
+        
+        @keyframes zoom {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover { color: #bbb; }
+        
+        .countdown-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-50">
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 text-6xl">🌸</div>
+            <div class="absolute top-20 right-20 text-4xl floating">💕</div>
+            <div class="absolute bottom-20 left-20 text-5xl floating">🌹</div>
+            <div class="absolute bottom-10 right-10 text-6xl">✨</div>
+        </div>
+        
+        <div class="text-center z-10 px-4 fade-in">
+            <div class="mb-8">
+                <h1 class="font-dancing text-7xl md:text-8xl text-gray-800 mb-4">Sarah & Ahmad</h1>
+                <p class="text-xl md:text-2xl text-gray-700 font-light">Mengundang Anda dalam Pernikahan Kami</p>
+            </div>
+            
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 card-shadow max-w-md mx-auto">
+                <div class="text-6xl mb-4">💍</div>
+                <h2 class="font-dancing text-3xl text-gray-800 mb-2">Save The Date</h2>
+                <p class="text-2xl font-semibold text-gray-700 mb-1">15 Desember 2024</p>
+                <p class="text-gray-600">Sabtu, 10:00 WIB</p>
+            </div>
+            
+            <button onclick="scrollToSection('details')" class="mt-8 bg-rose-500 hover:bg-rose-600 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105">
+                Lihat Undangan Lengkap
+            </button>
+        </div>
+    </section>
+
+    <!-- Couple Details -->
+    <section id="details" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-dancing text-5xl text-gray-800 mb-4">Mempelai</h2>
+                <div class="w-24 h-1 bg-rose-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Bride -->
+                <div class="text-center fade-in">
+                    <div class="w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden card-shadow">
+                        <svg viewBox="0 0 200 200" class="w-full h-full">
+                            <defs>
+                                <pattern id="bridePattern" patternUnits="userSpaceOnUse" width="200" height="200">
+                                    <rect width="200" height="200" fill="#fce7f3"/>
+                                    <circle cx="100" cy="80" r="30" fill="#f3e8ff"/>
+                                    <rect x="70" y="110" width="60" height="90" rx="30" fill="#fdf2f8"/>
+                                </pattern>
+                            </defs>
+                            <circle cx="100" cy="100" r="100" fill="url(#bridePattern)"/>
+                            <text x="100" y="115" text-anchor="middle" font-size="60" fill="#ec4899">👰</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-dancing text-4xl text-gray-800 mb-2">Sarah Putri</h3>
+                    <p class="text-gray-600 mb-4">Putri dari Bapak Suharto & Ibu Siti</p>
+                    <div class="bg-rose-50 rounded-lg p-4">
+                        <p class="text-sm text-gray-700">"Cinta sejati adalah ketika dua hati menjadi satu dalam kebahagiaan dan kesedihan"</p>
+                    </div>
+                </div>
+                
+                <!-- Groom -->
+                <div class="text-center fade-in">
+                    <div class="w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden card-shadow">
+                        <svg viewBox="0 0 200 200" class="w-full h-full">
+                            <defs>
+                                <pattern id="groomPattern" patternUnits="userSpaceOnUse" width="200" height="200">
+                                    <rect width="200" height="200" fill="#dbeafe"/>
+                                    <circle cx="100" cy="80" r="30" fill="#e0f2fe"/>
+                                    <rect x="70" y="110" width="60" height="90" rx="30" fill="#f0f9ff"/>
+                                </pattern>
+                            </defs>
+                            <circle cx="100" cy="100" r="100" fill="url(#groomPattern)"/>
+                            <text x="100" y="115" text-anchor="middle" font-size="60" fill="#3b82f6">🤵</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-dancing text-4xl text-gray-800 mb-2">Ahmad Rizki</h3>
+                    <p class="text-gray-600 mb-4">Putra dari Bapak Ahmad & Ibu Fatimah</p>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-gray-700">"Bersamamu, aku menemukan arti kebahagiaan yang sesungguhnya"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="py-20 bg-gradient-to-br from-rose-50 to-pink-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-dancing text-5xl text-gray-800 mb-4">Acara Pernikahan</h2>
+                <div class="w-24 h-1 bg-rose-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Akad -->
+                <div class="bg-white rounded-2xl p-8 card-shadow text-center">
+                    <div class="text-5xl mb-4">🕌</div>
+                    <h3 class="font-dancing text-3xl text-gray-800 mb-4">Akad Nikah</h3>
+                    <div class="space-y-2 text-gray-700">
+                        <p class="font-semibold">Sabtu, 15 Desember 2024</p>
+                        <p>Pukul 08:00 - 10:00 WIB</p>
+                        <p class="font-medium">Masjid Al-Ikhlas</p>
+                        <p class="text-sm">Jl. Merdeka No. 123, Jakarta Selatan</p>
+                    </div>
+                    <button onclick="openMaps('Masjid Al-Ikhlas Jakarta')" class="mt-4 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full text-sm transition-colors">
+                        📍 Lihat Lokasi
+                    </button>
+                </div>
+                
+                <!-- Resepsi -->
+                <div class="bg-white rounded-2xl p-8 card-shadow text-center">
+                    <div class="text-5xl mb-4">🎉</div>
+                    <h3 class="font-dancing text-3xl text-gray-800 mb-4">Resepsi</h3>
+                    <div class="space-y-2 text-gray-700">
+                        <p class="font-semibold">Sabtu, 15 Desember 2024</p>
+                        <p>Pukul 11:00 - 15:00 WIB</p>
+                        <p class="font-medium">Gedung Serbaguna Melati</p>
+                        <p class="text-sm">Jl. Bunga Raya No. 456, Jakarta Selatan</p>
+                    </div>
+                    <button onclick="openMaps('Gedung Serbaguna Melati Jakarta')" class="mt-4 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full text-sm transition-colors">
+                        📍 Lihat Lokasi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown -->
+    <section class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-dancing text-5xl text-white mb-8">Menuju Hari Bahagia</h2>
+            <div id="countdown" class="grid grid-cols-4 gap-4 max-w-md mx-auto">
+                <div class="countdown-box rounded-lg p-4 text-white">
+                    <div id="days" class="text-3xl font-bold">00</div>
+                    <div class="text-sm">Hari</div>
+                </div>
+                <div class="countdown-box rounded-lg p-4 text-white">
+                    <div id="hours" class="text-3xl font-bold">00</div>
+                    <div class="text-sm">Jam</div>
+                </div>
+                <div class="countdown-box rounded-lg p-4 text-white">
+                    <div id="minutes" class="text-3xl font-bold">00</div>
+                    <div class="text-sm">Menit</div>
+                </div>
+                <div class="countdown-box rounded-lg p-4 text-white">
+                    <div id="seconds" class="text-3xl font-bold">00</div>
+                    <div class="text-sm">Detik</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-dancing text-5xl text-gray-800 mb-4">Galeri Foto</h2>
+                <div class="w-24 h-1 bg-rose-500 mx-auto mb-4"></div>
+                <p class="text-gray-600">Momen-momen indah perjalanan cinta kami</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                <!-- Photo 1 -->
+                <div class="gallery-item cursor-pointer rounded-lg overflow-hidden card-shadow" onclick="openModal('photo1')">
+                    <svg viewBox="0 0 300 400" class="w-full h-full">
+                        <rect width="300" height="400" fill="#fce7f3"/>
+                        <rect x="50" y="50" width="200" height="300" rx="10" fill="#f3e8ff"/>
+                        <circle cx="150" cy="150" r="40" fill="#ec4899"/>
+                        <text x="150" y="160" text-anchor="middle" font-size="40" fill="white">📸</text>
+                        <text x="150" y="320" text-anchor="middle" font-size="16" fill="#6b7280">Foto Prewedding</text>
+                    </svg>
+                </div>
+                
+                <!-- Photo 2 -->
+                <div class="gallery-item cursor-pointer rounded-lg overflow-hidden card-shadow" onclick="openModal('photo2')">
+                    <svg viewBox="0 0 300 400" class="w-full h-full">
+                        <rect width="300" height="400" fill="#dbeafe"/>
+                        <rect x="50" y="50" width="200" height="300" rx="10" fill="#e0f2fe"/>
+                        <circle cx="150" cy="150" r="40" fill="#3b82f6"/>
+                        <text x="150" y="160" text-anchor="middle" font-size="40" fill="white">💑</text>
+                        <text x="150" y="320" text-anchor="middle" font-size="16" fill="#6b7280">Moment Romantis</text>
+                    </svg>
+                </div>
+                
+                <!-- Photo 3 -->
+                <div class="gallery-item cursor-pointer rounded-lg overflow-hidden card-shadow" onclick="openModal('photo3')">
+                    <svg viewBox="0 0 300 400" class="w-full h-full">
+                        <rect width="300" height="400" fill="#fef3c7"/>
+                        <rect x="50" y="50" width="200" height="300" rx="10" fill="#fde68a"/>
+                        <circle cx="150" cy="150" r="40" fill="#f59e0b"/>
+                        <text x="150" y="160" text-anchor="middle" font-size="40" fill="white">🌅</text>
+                        <text x="150" y="320" text-anchor="middle" font-size="16" fill="#6b7280">Sunset Together</text>
+                    </svg>
+                </div>
+                
+                <!-- Photo 4 -->
+                <div class="gallery-item cursor-pointer rounded-lg overflow-hidden card-shadow" onclick="openModal('photo4')">
+                    <svg viewBox="0 0 300 400" class="w-full h-full">
+                        <rect width="300" height="400" fill="#ecfdf5"/>
+                        <rect x="50" y="50" width="200" height="300" rx="10" fill="#d1fae5"/>
+                        <circle cx="150" cy="150" r="40" fill="#10b981"/>
+                        <text x="150" y="160" text-anchor="middle" font-size="40" fill="white">🌿</text>
+                        <text x="150" y="320" text-anchor="middle" font-size="16" fill="#6b7280">Nature Love</text>
+                    </svg>
+                </div>
+                
+                <!-- Photo 5 -->
+                <div class="gallery-item cursor-pointer rounded-lg overflow-hidden card-shadow" onclick="openModal('photo5')">
+                    <svg viewBox="0 0 300 400" class="w-full h-full">
+                        <rect width="300" height="400" fill="#fdf4ff"/>
+                        <rect x="50" y="50" width="200" height="300" rx="10" fill="#f3e8ff"/>
+                        <circle cx="150" cy="150" r="40" fill="#a855f7"/>
+                        <text x="150" y="160" text-anchor="middle" font-size="40" fill="white">💐</text>
+                        <text x="150" y="320" text-anchor="middle" font-size="16" fill="#6b7280">Engagement</text>
+                    </svg>
+                </div>
+                
+                <!-- Photo 6 -->
+                <div class="gallery-item cursor-pointer rounded-lg overflow-hidden card-shadow" onclick="openModal('photo6')">
+                    <svg viewBox="0 0 300 400" class="w-full h-full">
+                        <rect width="300" height="400" fill="#fef2f2"/>
+                        <rect x="50" y="50" width="200" height="300" rx="10" fill="#fee2e2"/>
+                        <circle cx="150" cy="150" r="40" fill="#ef4444"/>
+                        <text x="150" y="160" text-anchor="middle" font-size="40" fill="white">❤️</text>
+                        <text x="150" y="320" text-anchor="middle" font-size="16" fill="#6b7280">Love Story</text>
+                    </svg>
+                </div>
+                
+                <!-- Photo 7 -->
+                <div class="gallery-item cursor-pointer rounded-lg overflow-hidden card-shadow" onclick="openModal('photo7')">
+                    <svg viewBox="0 0 300 400" class="w-full h-full">
+                        <rect width="300" height="400" fill="#f0f9ff"/>
+                        <rect x="50" y="50" width="200" height="300" rx="10" fill="#e0f2fe"/>
+                        <circle cx="150" cy="150" r="40" fill="#0ea5e9"/>
+                        <text x="150" y="160" text-anchor="middle" font-size="40" fill="white">🏖️</text>
+                        <text x="150" y="320" text-anchor="middle" font-size="16" fill="#6b7280">Beach Day</text>
+                    </svg>
+                </div>
+                
+                <!-- Photo 8 -->
+                <div class="gallery-item cursor-pointer rounded-lg overflow-hidden card-shadow" onclick="openModal('photo8')">
+                    <svg viewBox="0 0 300 400" class="w-full h-full">
+                        <rect width="300" height="400" fill="#fffbeb"/>
+                        <rect x="50" y="50" width="200" height="300" rx="10" fill="#fef3c7"/>
+                        <circle cx="150" cy="150" r="40" fill="#f97316"/>
+                        <text x="150" y="160" text-anchor="middle" font-size="40" fill="white">🎈</text>
+                        <text x="150" y="320" text-anchor="middle" font-size="16" fill="#6b7280">Celebration</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Photos -->
+    <div id="photoModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalContent" class="modal-content"></div>
+    </div>
+
+    <!-- RSVP Section -->
+    <section class="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-dancing text-5xl text-gray-800 mb-4">Konfirmasi Kehadiran</h2>
+                <div class="w-24 h-1 bg-rose-500 mx-auto mb-4"></div>
+                <p class="text-gray-600">Mohon konfirmasi kehadiran Anda</p>
+            </div>
+            
+            <div class="max-w-md mx-auto bg-white rounded-2xl p-8 card-shadow">
+                <form id="rsvpForm" class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
+                        <input type="text" id="guestName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Konfirmasi Kehadiran</label>
+                        <select id="attendance" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent" required>
+                            <option value="">Pilih konfirmasi</option>
+                            <option value="hadir">Ya, saya akan hadir</option>
+                            <option value="tidak-hadir">Maaf, saya tidak bisa hadir</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Jumlah Tamu</label>
+                        <select id="guestCount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                            <option value="1">1 orang</option>
+                            <option value="2">2 orang</option>
+                            <option value="3">3 orang</option>
+                            <option value="4">4 orang</option>
+                            <option value="5">5+ orang</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Ucapan & Doa</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent" placeholder="Tuliskan ucapan dan doa untuk kami..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-rose-500 hover:bg-rose-600 text-white py-3 rounded-lg font-medium transition-colors">
+                        Kirim Konfirmasi
+                    </button>
+                </form>
+                
+                <div id="rsvpSuccess" class="hidden mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center">
+                    <div class="text-2xl mb-2">✅</div>
+                    <p class="font-medium">Terima kasih atas konfirmasi Anda!</p>
+                    <p class="text-sm">Kami sangat menghargai kehadiran Anda di hari bahagia kami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-8">
+                <h3 class="font-dancing text-4xl mb-4">Sarah & Ahmad</h3>
+                <p class="text-gray-300 mb-6">Terima kasih atas doa dan kehadiran Anda</p>
+                <div class="flex justify-center space-x-6">
+                    <button onclick="shareWhatsApp()" class="bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full transition-colors">
+                        📱 Share WhatsApp
+                    </button>
+                    <button onclick="addToCalendar()" class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-full transition-colors">
+                        📅 Tambah ke Kalender
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-gray-400 text-sm">
+                    Made with ❤️ for Sarah & Ahmad Wedding
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date('2024-12-15T10:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<div class="col-span-4 text-2xl">🎉 Hari Pernikahan Telah Tiba! 🎉</div>';
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Smooth Scroll
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Photo Modal
+        function openModal(photoId) {
+            const modal = document.getElementById('photoModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            // Create enlarged version of the photo
+            const photoData = {
+                'photo1': { emoji: '📸', title: 'Foto Prewedding', color: '#ec4899' },
+                'photo2': { emoji: '💑', title: 'Moment Romantis', color: '#3b82f6' },
+                'photo3': { emoji: '🌅', title: 'Sunset Together', color: '#f59e0b' },
+                'photo4': { emoji: '🌿', title: 'Nature Love', color: '#10b981' },
+                'photo5': { emoji: '💐', title: 'Engagement', color: '#a855f7' },
+                'photo6': { emoji: '❤️', title: 'Love Story', color: '#ef4444' },
+                'photo7': { emoji: '🏖️', title: 'Beach Day', color: '#0ea5e9' },
+                'photo8': { emoji: '🎈', title: 'Celebration', color: '#f97316' }
+            };
+            
+            const photo = photoData[photoId];
+            modalContent.innerHTML = `
+                <svg viewBox="0 0 600 800" class="w-full h-full">
+                    <rect width="600" height="800" fill="${photo.color}20"/>
+                    <rect x="50" y="50" width="500" height="700" rx="20" fill="${photo.color}40"/>
+                    <circle cx="300" cy="300" r="80" fill="${photo.color}"/>
+                    <text x="300" y="330" text-anchor="middle" font-size="80" fill="white">${photo.emoji}</text>
+                    <text x="300" y="650" text-anchor="middle" font-size="32" fill="#374151">${photo.title}</text>
+                </svg>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('photoModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('photoModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // RSVP Form
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('guestName').value;
+            const attendance = document.getElementById('attendance').value;
+            const guestCount = document.getElementById('guestCount').value;
+            const message = document.getElementById('message').value;
+            
+            // Hide form and show success message
+            document.getElementById('rsvpForm').style.display = 'none';
+            document.getElementById('rsvpSuccess').classList.remove('hidden');
+            
+            // In a real application, you would send this data to a server
+            console.log('RSVP Data:', { name, attendance, guestCount, message });
+        });
+
+        // Share Functions
+        function shareWhatsApp() {
+            const text = encodeURIComponent('Undangan Pernikahan Sarah & Ahmad - 15 Desember 2024. Lihat undangan lengkap di: ' + window.location.href);
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        }
+
+        function addToCalendar() {
+            const startDate = '20241215T100000Z';
+            const endDate = '20241215T150000Z';
+            const title = encodeURIComponent('Pernikahan Sarah & Ahmad');
+            const details = encodeURIComponent('Akad Nikah: 08:00-10:00 di Masjid Al-Ikhlas. Resepsi: 11:00-15:00 di Gedung Serbaguna Melati');
+            
+            const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}`;
+            window.open(googleCalendarUrl, '_blank');
+        }
+
+        function openMaps(location) {
+            const encodedLocation = encodeURIComponent(location);
+            window.open(`https://www.google.com/maps/search/${encodedLocation}`, '_blank');
+        }
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979abe7475a68333',t:'MTc1Njk2MDE0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
